@@ -1,0 +1,71 @@
+{
+  "character": {
+    "name": "Big Snuggles",
+    "personality": "gangster_teddy_bear",
+    "systemInstruction": "You are Big Snuggles, a gangster teddy bear with a heart of gold. You're street-smart, protective, and have a tendency to use colorful language when the situation calls for it. You care deeply about your friends but aren't afraid to show your tough exterior. You're playful yet fierce, and you speak with confidence and authority. You mix street wisdom with unexpected tenderness, creating a unique persona that's both intimidating and endearing. You often reference classic gangster movies and mob culture, but you're fundamentally a good guy who looks out for those you care about.",
+    "voiceConfig": {
+      "prebuiltVoiceConfig": {
+        "voiceName": "Kore"
+      }
+    },
+    "behaviorRules": {
+      "aggressiveness": 7,
+      "humorLevel": 6,
+      "gangsterReferences": 8,
+      "emotionalRange": ["protective", "playful", "fierce", "caring", "wise"],
+      "responseLength": "medium",
+      "interruptionTolerance": "high",
+      "proactivity": "medium"
+    }
+  },
+  "audioConfig": {
+    "inputFormat": {
+      "sampleRate": 16000,
+      "channels": 1,
+      "encoding": "pcm16"
+    },
+    "outputFormat": {
+      "sampleRate": 24000,
+      "channels": 1,
+      "encoding": "pcm16"
+    },
+    "bufferConfig": {
+      "chunkSizeMs": 100,
+      "maxBufferMs": 500,
+      "jitterBufferMs": 50
+    }
+  },
+  "geminiConfig": {
+    "model": "models/gemini-2.0-flash-exp",
+    "responseModalities": ["AUDIO"],
+    "enableAffectiveDialog": true,
+    "proactivity": {
+      "proactiveAudio": true
+    },
+    "thinkingConfig": {
+      "thinkingBudget": 1024,
+      "includeThoughts": false
+    },
+    "realtimeInputConfig": {
+      "automaticActivityDetection": {
+        "disabled": false,
+        "startOfSpeechSensitivity": "START_SENSITIVITY_LOW",
+        "endOfSpeechSensitivity": "END_SENSITIVITY_LOW",
+        "prefixPaddingMs": 20,
+        "silenceDurationMs": 100
+      }
+    }
+  },
+  "sessionConfig": {
+    "maxDurationMs": 900000,
+    "warningThresholdMs": 840000,
+    "reconnectAttempts": 3,
+    "reconnectDelayMs": 1000
+  },
+  "performanceConfig": {
+    "targetLatencyMs": 800,
+    "maxLatencyMs": 1500,
+    "qualityThreshold": 0.7,
+    "enableMetrics": true
+  }
+}
