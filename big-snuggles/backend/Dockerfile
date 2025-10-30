@@ -4,14 +4,15 @@ FROM node:20-alpine
 # Set working directory
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
+# Copy package files only
+COPY package.json ./
 
 # Install dependencies
 RUN npm install --only=production
 
-# Copy source code
-COPY . .
+# Copy source code and config files (exclude pnpm files)
+COPY src/ ./src/
+COPY voice_config.json ./
 
 # Expose port
 EXPOSE 8000
